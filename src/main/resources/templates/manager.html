@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Fresh Pick此模板 来自CSS库吧 www.cssk8.com</title>
+
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+<meta name="author" content="Erwin Aligam - CSSK8.com" />
+<meta name="description" content="Site Description Here" />
+<meta name="keywords" content="keywords, here" />
+<meta name="robots" content="index, follow, noarchive" />
+<meta name="googlebot" content="noarchive" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+
+</head>
+
+<body>
+
+<!-- wrap starts here -->
+<div id="wrap">
+
+	<!--header -->
+	<div id="header">
+		<h1 id="logo-text"><a href="index.html" title="">书籍管理系统</a></h1>
+		<p id="slogan">欢迎来到后台管理界面 </p>
+		<div  id="nav">
+			<ul>
+				<li class="first"><a href="index.html">首页</a></li>
+				<li><a href="login.html">登录</a></li>
+				<li><a href="register.html">注册</a></li>
+				<li id="current"><a href="manager.html">后台管理</a></li>
+				<li><a href="Book_add.html">添加书籍</a></li>
+<!--				<li><a href="Book_update.html">修改书籍</a></li>-->
+
+			</ul>		
+		</div>
+		<div id="header-image"></div>
+	<!--header ends-->					
+	</div>
+
+	<!-- content -->
+	<div id="content-outer" class="clear">
+<!--		<div id="content-wrap">-->
+			<div id="content">
+				<div>
+					<form id="quick-search" th:action="@{/Book/search}" method="post" >
+						<p align="center">
+							<input  type="text" name="id" placeholder="请输入要查询的ID"/>
+							<input type="submit" name="search" value="搜索">
+<!--							<label for="search">查找</label>-->
+<!--							<img src="images/search.gif" id="search">-->
+						</p>
+					</form>
+				</div>
+				<div>
+					<table id="Booktab">
+						<thead>
+						<tr>
+							<td>书籍编号</td>
+							<td>商品类型</td>
+							<td>ISBN</td>
+							<td>书名</td>
+							<td>作者</td>
+							<td>出版商</td>
+							<td>价格</td>
+							<td>操作</td>
+						</tr>
+						</thead>
+						<tbody>
+							<tr th:each="book : ${books}">
+								<div>
+									<label style="color: orange"  th:text="${msg}"></label>
+								</div>
+								<td th:text="${book.getId()}"></td>
+								<td th:text="${book.getCategory()}" ></td>
+								<td th:text="${book.getISBN()}" ></td>
+								<td th:text="${book.getTitle()}" ></td>
+								<td th:text="${book.getAuthor()}" ></td>
+								<td th:text="${book.getPress()}" ></td>
+								<td th:text="${book.getPrice()}" ></td>
+								<td>
+									<a @click="deletebook" th:href="@{'/Bookdelete/'+${book.id}}">删除/</a>
+									<a th:href="@{'/Book/'+${book.id}}">修改</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+</div>
+</div>
+<form id="deleteForm" method="post">
+	<input type="hidden" name="_method" value="delete">
+</form>
+<script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+<script type="text/javascript">
+	var vue = new Vue({
+		el:"#Booktab",
+		methods: {
+			deletebook:function (event) {
+				var deleteForm = document.getElementById("deleteForm");
+				deleteForm.action=event.target.href;
+				deleteForm.submit();
+				event.preventDefault();
+			}
+		}
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Fresh Pick此模板 来自CSS库吧 www.cssk8.com</title>
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+<meta name="author" content="Erwin Aligam - CSSK8.com" />
+<meta name="description" content="Site Description Here" />
+<meta name="keywords" content="keywords, here" />
+<meta name="robots" content="index, follow, noarchive" />
+<meta name="googlebot" content="noarchive" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+	<style type="text/css">
+		h2{
+			text-align: center;
+			color: coral;
+		}
+		img{
+			height: 310px;
+			width: 220px;
+		}
+	</style>
+</head>
+<body>
+<!-- wrap starts here -->
+<div id="wrap">
+	<!--header -->
+	<div id="header">
+		<h1 id="logo-text"><a href="index.html" title="">书籍管理系统</a></h1>
+		<p id="slogan">Welcome to you!!! </p>
+		
+		<div  id="nav">
+			<ul>
+				<li class="first" id="current"><a href="index.html">首页</a></li>
+				<li><a href="login.html">登录</a></li>
+				<li><a href="register.html">注册</a></li>
+				<li><a href="manager.html">后台管理</a></li>
+				<li><a href="Book_add.html">添加书籍</a></li>
+			</ul>		
+		</div>
+		<div id="header-image"></div>
+						
+	<!--header ends-->					
+	</div>
+	<!-- content -->
+	<div id="content">
+		<h2 th:text="|欢迎${session.loginuser.getName()}登录|"></h2>
+
+		<img src="images/apple.jpg" alt=""/>
+		<img src="images/img-post3.jpg" alt=""/>
+		<img src="images/img-post2.jpg" alt=""/>
+		<img src="images/img-post4.jpg" alt=""/>
+		<img src="images/down.png" alt=""/>
+		<img src="images/Luffy.png" alt=""/>
+
+
+
+
+	</div>
+
+
+	<!-- footer ends -->
+
+</div>
+<!-- wrap ends here -->
+</div>
+
+</body>
+</html>

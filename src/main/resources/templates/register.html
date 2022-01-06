@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Fresh Pick此模板 来自CSS库吧 www.cssk8.com</title>
+
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+<meta name="author" content="Erwin Aligam - CSSK8.com" />
+<meta name="description" content="Site Description Here" />
+<meta name="keywords" content="keywords, here" />
+<meta name="robots" content="index, follow, noarchive" />
+<meta name="googlebot" content="noarchive" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+<style type="text/css">
+	.login {
+		width: 100px;
+		height: 50px;
+		display: flex;
+	}
+	.text{
+		align-content: center;
+	}
+	.form_container{
+		width: 300px;
+
+	}
+	#contactform{
+		background-color: none;
+		/*background:none;*/
+		border: none;
+	}
+</style>
+</head>
+
+<body>
+
+<!-- wrap starts here -->
+<div id="wrap">
+
+	<!--header -->
+	<div id="header">			
+				
+		<h1 id="logo-text"><a href="index.html" title="">书籍管理系统</a></h1>
+		<p id="slogan">欢迎注册 </p>
+		
+		<div  id="nav">
+			<ul>
+				<li class="first"><a href="index.html">首页</a></li>
+				<li><a href="login.html">登录</a></li>
+				<li id="current"><a href="register.html">注册</a></li>
+				<li><a href="manager.html">后台管理</a></li>
+				<li><a href="Book_add.html">添加书籍</a></li>
+<!--				<li><a href="Book_update.html">修改书籍</a></li>-->
+			</ul>		
+		</div>	
+		
+		<div id="header-image"></div>
+				
+	<!--header ends-->					
+	</div>
+	<!-- content -->
+	<div id="content-outer" class="clear">
+<!--		<div id="content">-->
+<!--			<div id="left">-->
+				<div style="margin:0 auto; background-color:rgb(233, 231, 226);">
+					<div style="margin:0 auto;" class="form_container">
+						<form th:action="@{/add}" method="post" id="contactform" enctype="multipart/form-data">
+							<p class="text">注册</p>
+							<div>
+								<label style="color: red" th:text="${msg}"></label>
+							</div>
+							姓名： <input type="text" name="name"><br/>
+							密码:   <input type="password" name="password"><br/>
+							性别： <input type="radio" name="sex" checked="checked">男
+							<input type="radio" name="sex" >女<br/>
+							爱好:<input type="checkbox" value="足球" name="hobby">足球
+							<input type="checkbox" value="篮球" name="hobby">篮球
+							<input type="checkbox" value="羽毛球" name="hobby">羽毛球<br/>
+							<input type="file" name="file" value="请选择上传文件"><br/>
+							<input class="button" type="submit" value="提交" tabindex="5">
+							<a href="login.html" style="width: 150px;margin-left: 20px;">已有账号？去登录</a>
+
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- wrap ends here -->
+	</div>
+	
+<!-- wrap ends here -->
+</div>
+
+</body>
+</html>

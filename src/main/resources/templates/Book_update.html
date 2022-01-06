@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Fresh Pick此模板 来自CSS库吧 www.cssk8.com</title>
+
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="author" content="Erwin Aligam - CSSK8.com" />
+    <meta name="description" content="Site Description Here" />
+    <meta name="keywords" content="keywords, here" />
+    <meta name="robots" content="index, follow, noarchive" />
+    <meta name="googlebot" content="noarchive" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/screen.css" />
+    <style type="text/css">
+        input {
+            display: inline-block;
+            width: 150px;
+            height: auto;
+            vertical-align: sub;
+            font-family: 宋体;
+        }
+        table{
+            margin: auto;
+
+        }
+        body{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- wrap starts here -->
+<div id="wrap">
+
+    <!--header -->
+    <div id="header">
+        <h1 id="logo-text" style="text-align: center"><a href="index.html" title="">修改</a></h1>
+        <div id="header-image"></div>
+        <!--header ends-->
+    </div>
+
+    <!-- content -->
+    <div id="content-outer" class="clear">
+        <!--		<div id="content-wrap">-->
+        <div id="content">
+            <div style="text-align: center">
+                <form th:action="@{/Bookupdate}" method="post">
+                    <table style="background: #7BA857;font-family: 宋体;height: auto;">
+                        <tr>
+                            <td><input type="hidden" name="_method" value="put"></td>
+                        </tr>
+                        <tr>
+                            <td>id号:</td>
+                            <td><input type="text" name="id" th:value="${book.id}"></td>
+                        </tr>
+                        <tr>
+                            <td>商品类型:</td>
+                            <td><input type="text" name="category" th:value="${book.category}"></td>
+                        </tr>
+                        <tr>
+                            <td>ISBN:</td>
+                            <td><input type="text" name="ISBN" th:value="${book.ISBN}"></td>
+                        </tr>
+                        <tr>
+                            <td>书名:</td>
+                            <td><input type="text" name="title" th:value="${book.title}"></td>
+                        </tr>
+                        <tr>
+                            <td>作者:</td>
+                            <td><input type="text" name="author" th:value="${book.author}"></td>
+                        </tr>
+                        <tr>
+                            <td>出版社:</td>
+                            <td><input type="text" name="press" th:value="${book.press}"></td>
+                        </tr>
+                        <tr>
+                            <td>价格:</td>
+                            <td><input type="number" name="price" th:value="${book.price}"></td>
+                        </tr>
+                       <div style="margin: auto">
+                           <td><input type="submit" value="提交" style="width: auto;color:cyan"></td>
+                       </div>
+
+
+
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- wrap ends here -->
+</div>
+
+</body>
+</html>
